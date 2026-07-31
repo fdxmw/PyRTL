@@ -3,18 +3,14 @@ import pyrtl
 # # Ripple-carry adder example.
 
 
-def one_bit_add(
-    a: pyrtl.WireVector, b: pyrtl.WireVector, carry_in: pyrtl.WireVector | int
-) -> tuple[pyrtl.WireVector, pyrtl.WireVector]:
+def one_bit_add(a, b, carry_in) -> tuple:
     assert len(a) == len(b) == 1  # `len` returns the bitwidth.
     sum = a ^ b ^ carry_in  # WireVector operators build the hardware.
     carry_out = a & b | a & carry_in | b & carry_in
     return sum, carry_out
 
 
-def ripple_add(
-    a: pyrtl.WireVector, b: pyrtl.WireVector, carry_in: pyrtl.WireVector | int = 0
-) -> tuple[pyrtl.WireVector, pyrtl.WireVector]:
+def ripple_add(a, b, carry_in=0) -> tuple:
     a, b = pyrtl.match_bitwidth(a, b)
     if len(a) == 1:
         sumbits, carry_out = one_bit_add(a, b, carry_in)

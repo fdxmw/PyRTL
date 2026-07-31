@@ -1,9 +1,9 @@
 import pyrtl
 
-# # Finite impulse filter example.
+# # Finite impulse response filter example.
 
 
-def fir(x: pyrtl.WireVector, bs: list[int]):
+def fir(x, bs: list[int]):
     rwidth = x.bitwidth  # Bitwidth of the registers.
     ntaps = len(bs)  # Number of coefficients.
 

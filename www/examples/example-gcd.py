@@ -3,9 +3,7 @@ import pyrtl
 # # Greatest common denominator example.
 
 
-def gcd(
-    a: pyrtl.WireVector, b: pyrtl.WireVector, begin: pyrtl.WireVector
-) -> tuple[pyrtl.WireVector, pyrtl.WireVector]:
+def gcd(a, b, begin) -> tuple:
     x = pyrtl.Register(bitwidth=a.bitwidth)
     y = pyrtl.Register(bitwidth=b.bitwidth)
     done = pyrtl.WireVector(bitwidth=1)

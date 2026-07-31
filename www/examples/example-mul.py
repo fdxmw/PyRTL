@@ -3,7 +3,7 @@ import pyrtl
 # # ROM-based multiplier example.
 
 
-def mul(x: pyrtl.WireVector, y: pyrtl.WireVector) -> pyrtl.WireVector:
+def mul(x, y):
     assert x.bitwidth == 4
     assert y.bitwidth == 4
 

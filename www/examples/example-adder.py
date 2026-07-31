@@ -3,18 +3,14 @@ import pyrtl
 # # Ripple-carry adder example.
 
 
-def fa(
-    x: pyrtl.WireVector, y: pyrtl.WireVector, cin: pyrtl.WireVector
-) -> tuple[pyrtl.WireVector, pyrtl.WireVector]:
+def fa(x, y, cin) -> tuple:
     """Full adder."""
     sum = x ^ y ^ cin
     cout = x & y | y & cin | x & cin
     return sum, cout
 
 
-def adder(
-    a: pyrtl.WireVector, b: pyrtl.WireVector, cin: pyrtl.WireVector
-) -> tuple[pyrtl.WireVector, pyrtl.WireVector]:
+def adder(a, b, cin) -> tuple:
     """n-bit ripple carry adder with carry in and carry out."""
     a, b = pyrtl.match_bitwidth(a, b)
 
